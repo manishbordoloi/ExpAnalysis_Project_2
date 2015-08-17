@@ -31,6 +31,7 @@ for(i in 1:n){
   i=i+1
 }
 NEI_final_motor<- bind_rows(b)
+NEI_final_motor <- subset(NEI_final_motor,NEI_final_motor$fips == "24510")
 
 png(filename="Plot5.png",width=960,height=960,units="px")
 g<-g<-ggplot(NEI_final_motor, aes(x=factor(year), y=Emissions)) + stat_summary(fun.y="sum", geom="bar",fill="yellow")
